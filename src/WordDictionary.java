@@ -4,7 +4,8 @@ class WordDictionary {
     public WordDictionary() {
         head = new TrieNode('.', false);
     }
-    
+
+    // T.C -> O(len(word)), S.C -> O(len(word))
     public void addWord(String word) {
         TrieNode curr = head;
         char[] arr = word.toCharArray();
@@ -17,7 +18,8 @@ class WordDictionary {
             if(i == arr.length - 1) curr.isTerminal = true;
         }
     }
-    
+
+    // T.C -> O(26^len(word)), S.C -> O(1)
     public boolean search(String word) {
         return dfs(word, head);
     }
